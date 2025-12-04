@@ -1,12 +1,3 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 6.0"
-    }
-  }
-}
-
 resource "aws_vpc" "my_vpc" {
   cidr_block           = "11.0.0.0/16"
   enable_dns_hostnames = true
@@ -14,6 +5,7 @@ resource "aws_vpc" "my_vpc" {
 
   tags = {
     Name = "my-vpc"
+    Environment = "var.env"
   }
 }
 
